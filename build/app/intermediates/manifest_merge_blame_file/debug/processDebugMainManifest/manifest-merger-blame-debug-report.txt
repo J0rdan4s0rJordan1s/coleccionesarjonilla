@@ -1,0 +1,230 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.example.flutter_application_2"
+4    android:versionCode="1"
+5    android:versionName="0.1.0" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="21"
+9        android:targetSdkVersion="35" />
+10    <!--
+11         The INTERNET permission is required for development. Specifically,
+12         the Flutter tool needs it to communicate with the running application
+13         to allow setting breakpoints, to provide hot reload, etc.
+14    -->
+15    <uses-permission android:name="android.permission.INTERNET" />
+15-->/Users/aaronquevedo/ColeccionesArjonilla/coleccionesarjonilla/android/app/src/main/AndroidManifest.xml:6:5-66
+15-->/Users/aaronquevedo/ColeccionesArjonilla/coleccionesarjonilla/android/app/src/main/AndroidManifest.xml:6:22-64
+16    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+16-->/Users/aaronquevedo/ColeccionesArjonilla/coleccionesarjonilla/android/app/src/main/AndroidManifest.xml:2:5-78
+16-->/Users/aaronquevedo/ColeccionesArjonilla/coleccionesarjonilla/android/app/src/main/AndroidManifest.xml:2:22-76
+17    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+17-->/Users/aaronquevedo/ColeccionesArjonilla/coleccionesarjonilla/android/app/src/main/AndroidManifest.xml:3:5-80
+17-->/Users/aaronquevedo/ColeccionesArjonilla/coleccionesarjonilla/android/app/src/main/AndroidManifest.xml:3:22-78
+18    <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
+18-->/Users/aaronquevedo/ColeccionesArjonilla/coleccionesarjonilla/android/app/src/main/AndroidManifest.xml:4:5-84
+18-->/Users/aaronquevedo/ColeccionesArjonilla/coleccionesarjonilla/android/app/src/main/AndroidManifest.xml:4:22-82
+19    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+19-->/Users/aaronquevedo/ColeccionesArjonilla/coleccionesarjonilla/android/app/src/main/AndroidManifest.xml:5:5-76
+19-->/Users/aaronquevedo/ColeccionesArjonilla/coleccionesarjonilla/android/app/src/main/AndroidManifest.xml:5:22-74
+20    <!--
+21 Required to query activities that can process text, see:
+22         https://developer.android.com/training/package-visibility and
+23         https://developer.android.com/reference/android/content/Intent#ACTION_PROCESS_TEXT.
+24
+25         In particular, this is used by the Flutter engine in io.flutter.plugin.text.ProcessTextPlugin.
+26    -->
+27    <queries>
+27-->/Users/aaronquevedo/ColeccionesArjonilla/coleccionesarjonilla/android/app/src/main/AndroidManifest.xml:45:5-55:15
+28        <intent>
+28-->/Users/aaronquevedo/ColeccionesArjonilla/coleccionesarjonilla/android/app/src/main/AndroidManifest.xml:46:9-49:18
+29            <action android:name="android.intent.action.PROCESS_TEXT" />
+29-->/Users/aaronquevedo/ColeccionesArjonilla/coleccionesarjonilla/android/app/src/main/AndroidManifest.xml:47:13-72
+29-->/Users/aaronquevedo/ColeccionesArjonilla/coleccionesarjonilla/android/app/src/main/AndroidManifest.xml:47:21-70
+30
+31            <data android:mimeType="text/plain" />
+31-->/Users/aaronquevedo/ColeccionesArjonilla/coleccionesarjonilla/android/app/src/main/AndroidManifest.xml:48:13-50
+31-->/Users/aaronquevedo/ColeccionesArjonilla/coleccionesarjonilla/android/app/src/main/AndroidManifest.xml:48:19-48
+32        </intent>
+33        <intent>
+33-->/Users/aaronquevedo/ColeccionesArjonilla/coleccionesarjonilla/android/app/src/main/AndroidManifest.xml:50:9-54:18
+34            <action android:name="android.intent.action.VIEW" />
+34-->/Users/aaronquevedo/ColeccionesArjonilla/coleccionesarjonilla/android/app/src/main/AndroidManifest.xml:51:13-65
+34-->/Users/aaronquevedo/ColeccionesArjonilla/coleccionesarjonilla/android/app/src/main/AndroidManifest.xml:51:21-62
+35
+36            <category android:name="android.intent.category.BROWSABLE" />
+36-->/Users/aaronquevedo/ColeccionesArjonilla/coleccionesarjonilla/android/app/src/main/AndroidManifest.xml:52:13-74
+36-->/Users/aaronquevedo/ColeccionesArjonilla/coleccionesarjonilla/android/app/src/main/AndroidManifest.xml:52:23-71
+37
+38            <data android:scheme="https" />
+38-->/Users/aaronquevedo/ColeccionesArjonilla/coleccionesarjonilla/android/app/src/main/AndroidManifest.xml:48:13-50
+39        </intent>
+40    </queries>
+41
+42    <permission
+42-->[androidx.core:core:1.13.1] /Users/aaronquevedo/.gradle/caches/8.10.2/transforms/8cf478dec41eed746328fa8046755ba2/transformed/core-1.13.1/AndroidManifest.xml:22:5-24:47
+43        android:name="com.example.flutter_application_2.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
+43-->[androidx.core:core:1.13.1] /Users/aaronquevedo/.gradle/caches/8.10.2/transforms/8cf478dec41eed746328fa8046755ba2/transformed/core-1.13.1/AndroidManifest.xml:23:9-81
+44        android:protectionLevel="signature" />
+44-->[androidx.core:core:1.13.1] /Users/aaronquevedo/.gradle/caches/8.10.2/transforms/8cf478dec41eed746328fa8046755ba2/transformed/core-1.13.1/AndroidManifest.xml:24:9-44
+45
+46    <uses-permission android:name="com.example.flutter_application_2.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
+46-->[androidx.core:core:1.13.1] /Users/aaronquevedo/.gradle/caches/8.10.2/transforms/8cf478dec41eed746328fa8046755ba2/transformed/core-1.13.1/AndroidManifest.xml:26:5-97
+46-->[androidx.core:core:1.13.1] /Users/aaronquevedo/.gradle/caches/8.10.2/transforms/8cf478dec41eed746328fa8046755ba2/transformed/core-1.13.1/AndroidManifest.xml:26:22-94
+47
+48    <application
+49        android:name="android.app.Application"
+50        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+50-->[androidx.core:core:1.13.1] /Users/aaronquevedo/.gradle/caches/8.10.2/transforms/8cf478dec41eed746328fa8046755ba2/transformed/core-1.13.1/AndroidManifest.xml:28:18-86
+51        android:debuggable="true"
+52        android:extractNativeLibs="true"
+53        android:icon="@mipmap/ic_launcher"
+54        android:label="flutter_application_2" >
+55        <activity
+56            android:name="com.example.flutter_application_2.MainActivity"
+57            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
+58            android:exported="true"
+59            android:hardwareAccelerated="true"
+60            android:launchMode="singleTop"
+61            android:taskAffinity=""
+62            android:theme="@style/LaunchTheme"
+63            android:windowSoftInputMode="adjustResize" >
+64
+65            <!--
+66                 Specifies an Android theme to apply to this Activity as soon as
+67                 the Android process has started. This theme is visible to the user
+68                 while the Flutter UI initializes. After that, this theme continues
+69                 to determine the Window background behind the Flutter UI.
+70            -->
+71            <meta-data
+72                android:name="io.flutter.embedding.android.NormalTheme"
+73                android:resource="@style/NormalTheme" />
+74            <meta-data
+75                android:name="flutterEmbedding"
+76                android:value="2" />
+77
+78            <intent-filter>
+79                <action android:name="android.intent.action.MAIN" />
+80
+81                <category android:name="android.intent.category.LAUNCHER" />
+82            </intent-filter>
+83        </activity>
+84        <!--
+85             Don't delete the meta-data below.
+86             This is used by the Flutter tool to generate GeneratedPluginRegistrant.java
+87        -->
+88        <meta-data
+89            android:name="flutterEmbedding"
+90            android:value="2" />
+91
+92        <service
+92-->[:geolocator_android] /Users/aaronquevedo/ColeccionesArjonilla/coleccionesarjonilla/build/geolocator_android/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:8:9-12:56
+93            android:name="com.baseflow.geolocator.GeolocatorLocationService"
+93-->[:geolocator_android] /Users/aaronquevedo/ColeccionesArjonilla/coleccionesarjonilla/build/geolocator_android/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:9:13-77
+94            android:enabled="true"
+94-->[:geolocator_android] /Users/aaronquevedo/ColeccionesArjonilla/coleccionesarjonilla/build/geolocator_android/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:10:13-35
+95            android:exported="false"
+95-->[:geolocator_android] /Users/aaronquevedo/ColeccionesArjonilla/coleccionesarjonilla/build/geolocator_android/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:11:13-37
+96            android:foregroundServiceType="location" />
+96-->[:geolocator_android] /Users/aaronquevedo/ColeccionesArjonilla/coleccionesarjonilla/build/geolocator_android/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:12:13-53
+97
+98        <activity
+98-->[:url_launcher_android] /Users/aaronquevedo/ColeccionesArjonilla/coleccionesarjonilla/build/url_launcher_android/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:8:9-11:74
+99            android:name="io.flutter.plugins.urllauncher.WebViewActivity"
+99-->[:url_launcher_android] /Users/aaronquevedo/ColeccionesArjonilla/coleccionesarjonilla/build/url_launcher_android/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:9:13-74
+100            android:exported="false"
+100-->[:url_launcher_android] /Users/aaronquevedo/ColeccionesArjonilla/coleccionesarjonilla/build/url_launcher_android/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:10:13-37
+101            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
+101-->[:url_launcher_android] /Users/aaronquevedo/ColeccionesArjonilla/coleccionesarjonilla/build/url_launcher_android/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:11:13-71
+102
+103        <uses-library
+103-->[androidx.window:window:1.2.0] /Users/aaronquevedo/.gradle/caches/8.10.2/transforms/5093ab42d2307deb2d7ac0b7f5718c38/transformed/jetified-window-1.2.0/AndroidManifest.xml:23:9-25:40
+104            android:name="androidx.window.extensions"
+104-->[androidx.window:window:1.2.0] /Users/aaronquevedo/.gradle/caches/8.10.2/transforms/5093ab42d2307deb2d7ac0b7f5718c38/transformed/jetified-window-1.2.0/AndroidManifest.xml:24:13-54
+105            android:required="false" />
+105-->[androidx.window:window:1.2.0] /Users/aaronquevedo/.gradle/caches/8.10.2/transforms/5093ab42d2307deb2d7ac0b7f5718c38/transformed/jetified-window-1.2.0/AndroidManifest.xml:25:13-37
+106        <uses-library
+106-->[androidx.window:window:1.2.0] /Users/aaronquevedo/.gradle/caches/8.10.2/transforms/5093ab42d2307deb2d7ac0b7f5718c38/transformed/jetified-window-1.2.0/AndroidManifest.xml:26:9-28:40
+107            android:name="androidx.window.sidecar"
+107-->[androidx.window:window:1.2.0] /Users/aaronquevedo/.gradle/caches/8.10.2/transforms/5093ab42d2307deb2d7ac0b7f5718c38/transformed/jetified-window-1.2.0/AndroidManifest.xml:27:13-51
+108            android:required="false" />
+108-->[androidx.window:window:1.2.0] /Users/aaronquevedo/.gradle/caches/8.10.2/transforms/5093ab42d2307deb2d7ac0b7f5718c38/transformed/jetified-window-1.2.0/AndroidManifest.xml:28:13-37
+109
+110        <activity
+110-->[com.google.android.gms:play-services-base:18.3.0] /Users/aaronquevedo/.gradle/caches/8.10.2/transforms/9db9b81a577112600e8d2ee7b5450923/transformed/jetified-play-services-base-18.3.0/AndroidManifest.xml:20:9-22:45
+111            android:name="com.google.android.gms.common.api.GoogleApiActivity"
+111-->[com.google.android.gms:play-services-base:18.3.0] /Users/aaronquevedo/.gradle/caches/8.10.2/transforms/9db9b81a577112600e8d2ee7b5450923/transformed/jetified-play-services-base-18.3.0/AndroidManifest.xml:20:19-85
+112            android:exported="false"
+112-->[com.google.android.gms:play-services-base:18.3.0] /Users/aaronquevedo/.gradle/caches/8.10.2/transforms/9db9b81a577112600e8d2ee7b5450923/transformed/jetified-play-services-base-18.3.0/AndroidManifest.xml:22:19-43
+113            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+113-->[com.google.android.gms:play-services-base:18.3.0] /Users/aaronquevedo/.gradle/caches/8.10.2/transforms/9db9b81a577112600e8d2ee7b5450923/transformed/jetified-play-services-base-18.3.0/AndroidManifest.xml:21:19-78
+114
+115        <meta-data
+115-->[com.google.android.gms:play-services-basement:18.3.0] /Users/aaronquevedo/.gradle/caches/8.10.2/transforms/abeed4f47a72eff8f5b4e9bf7f2f3c91/transformed/jetified-play-services-basement-18.3.0/AndroidManifest.xml:21:9-23:69
+116            android:name="com.google.android.gms.version"
+116-->[com.google.android.gms:play-services-basement:18.3.0] /Users/aaronquevedo/.gradle/caches/8.10.2/transforms/abeed4f47a72eff8f5b4e9bf7f2f3c91/transformed/jetified-play-services-basement-18.3.0/AndroidManifest.xml:22:13-58
+117            android:value="@integer/google_play_services_version" />
+117-->[com.google.android.gms:play-services-basement:18.3.0] /Users/aaronquevedo/.gradle/caches/8.10.2/transforms/abeed4f47a72eff8f5b4e9bf7f2f3c91/transformed/jetified-play-services-basement-18.3.0/AndroidManifest.xml:23:13-66
+118
+119        <provider
+119-->[androidx.lifecycle:lifecycle-process:2.7.0] /Users/aaronquevedo/.gradle/caches/8.10.2/transforms/e80aa748ff6540407d8dba61c0d945fe/transformed/jetified-lifecycle-process-2.7.0/AndroidManifest.xml:24:9-32:20
+120            android:name="androidx.startup.InitializationProvider"
+120-->[androidx.lifecycle:lifecycle-process:2.7.0] /Users/aaronquevedo/.gradle/caches/8.10.2/transforms/e80aa748ff6540407d8dba61c0d945fe/transformed/jetified-lifecycle-process-2.7.0/AndroidManifest.xml:25:13-67
+121            android:authorities="com.example.flutter_application_2.androidx-startup"
+121-->[androidx.lifecycle:lifecycle-process:2.7.0] /Users/aaronquevedo/.gradle/caches/8.10.2/transforms/e80aa748ff6540407d8dba61c0d945fe/transformed/jetified-lifecycle-process-2.7.0/AndroidManifest.xml:26:13-68
+122            android:exported="false" >
+122-->[androidx.lifecycle:lifecycle-process:2.7.0] /Users/aaronquevedo/.gradle/caches/8.10.2/transforms/e80aa748ff6540407d8dba61c0d945fe/transformed/jetified-lifecycle-process-2.7.0/AndroidManifest.xml:27:13-37
+123            <meta-data
+123-->[androidx.lifecycle:lifecycle-process:2.7.0] /Users/aaronquevedo/.gradle/caches/8.10.2/transforms/e80aa748ff6540407d8dba61c0d945fe/transformed/jetified-lifecycle-process-2.7.0/AndroidManifest.xml:29:13-31:52
+124                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+124-->[androidx.lifecycle:lifecycle-process:2.7.0] /Users/aaronquevedo/.gradle/caches/8.10.2/transforms/e80aa748ff6540407d8dba61c0d945fe/transformed/jetified-lifecycle-process-2.7.0/AndroidManifest.xml:30:17-78
+125                android:value="androidx.startup" />
+125-->[androidx.lifecycle:lifecycle-process:2.7.0] /Users/aaronquevedo/.gradle/caches/8.10.2/transforms/e80aa748ff6540407d8dba61c0d945fe/transformed/jetified-lifecycle-process-2.7.0/AndroidManifest.xml:31:17-49
+126            <meta-data
+126-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/aaronquevedo/.gradle/caches/8.10.2/transforms/5f7dcf6815bacc3ae7f099ba801348de/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:29:13-31:52
+127                android:name="androidx.profileinstaller.ProfileInstallerInitializer"
+127-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/aaronquevedo/.gradle/caches/8.10.2/transforms/5f7dcf6815bacc3ae7f099ba801348de/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:30:17-85
+128                android:value="androidx.startup" />
+128-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/aaronquevedo/.gradle/caches/8.10.2/transforms/5f7dcf6815bacc3ae7f099ba801348de/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:31:17-49
+129        </provider>
+130
+131        <receiver
+131-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/aaronquevedo/.gradle/caches/8.10.2/transforms/5f7dcf6815bacc3ae7f099ba801348de/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:34:9-52:20
+132            android:name="androidx.profileinstaller.ProfileInstallReceiver"
+132-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/aaronquevedo/.gradle/caches/8.10.2/transforms/5f7dcf6815bacc3ae7f099ba801348de/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:35:13-76
+133            android:directBootAware="false"
+133-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/aaronquevedo/.gradle/caches/8.10.2/transforms/5f7dcf6815bacc3ae7f099ba801348de/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:36:13-44
+134            android:enabled="true"
+134-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/aaronquevedo/.gradle/caches/8.10.2/transforms/5f7dcf6815bacc3ae7f099ba801348de/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:37:13-35
+135            android:exported="true"
+135-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/aaronquevedo/.gradle/caches/8.10.2/transforms/5f7dcf6815bacc3ae7f099ba801348de/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:38:13-36
+136            android:permission="android.permission.DUMP" >
+136-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/aaronquevedo/.gradle/caches/8.10.2/transforms/5f7dcf6815bacc3ae7f099ba801348de/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:39:13-57
+137            <intent-filter>
+137-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/aaronquevedo/.gradle/caches/8.10.2/transforms/5f7dcf6815bacc3ae7f099ba801348de/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:40:13-42:29
+138                <action android:name="androidx.profileinstaller.action.INSTALL_PROFILE" />
+138-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/aaronquevedo/.gradle/caches/8.10.2/transforms/5f7dcf6815bacc3ae7f099ba801348de/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:41:17-91
+138-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/aaronquevedo/.gradle/caches/8.10.2/transforms/5f7dcf6815bacc3ae7f099ba801348de/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:41:25-88
+139            </intent-filter>
+140            <intent-filter>
+140-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/aaronquevedo/.gradle/caches/8.10.2/transforms/5f7dcf6815bacc3ae7f099ba801348de/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:43:13-45:29
+141                <action android:name="androidx.profileinstaller.action.SKIP_FILE" />
+141-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/aaronquevedo/.gradle/caches/8.10.2/transforms/5f7dcf6815bacc3ae7f099ba801348de/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:44:17-85
+141-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/aaronquevedo/.gradle/caches/8.10.2/transforms/5f7dcf6815bacc3ae7f099ba801348de/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:44:25-82
+142            </intent-filter>
+143            <intent-filter>
+143-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/aaronquevedo/.gradle/caches/8.10.2/transforms/5f7dcf6815bacc3ae7f099ba801348de/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:46:13-48:29
+144                <action android:name="androidx.profileinstaller.action.SAVE_PROFILE" />
+144-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/aaronquevedo/.gradle/caches/8.10.2/transforms/5f7dcf6815bacc3ae7f099ba801348de/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:47:17-88
+144-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/aaronquevedo/.gradle/caches/8.10.2/transforms/5f7dcf6815bacc3ae7f099ba801348de/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:47:25-85
+145            </intent-filter>
+146            <intent-filter>
+146-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/aaronquevedo/.gradle/caches/8.10.2/transforms/5f7dcf6815bacc3ae7f099ba801348de/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:49:13-51:29
+147                <action android:name="androidx.profileinstaller.action.BENCHMARK_OPERATION" />
+147-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/aaronquevedo/.gradle/caches/8.10.2/transforms/5f7dcf6815bacc3ae7f099ba801348de/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:50:17-95
+147-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/aaronquevedo/.gradle/caches/8.10.2/transforms/5f7dcf6815bacc3ae7f099ba801348de/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:50:25-92
+148            </intent-filter>
+149        </receiver>
+150    </application>
+151
+152</manifest>
