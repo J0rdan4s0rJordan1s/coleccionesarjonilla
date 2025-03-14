@@ -3,14 +3,18 @@ import 'package:flutter_map/flutter_map.dart';
 import 'package:latlong2/latlong.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:geolocator/geolocator.dart';
-import 'dart:math';
 
-class Mapa extends StatelessWidget {
-  final ValueNotifier<bool> isDarkMode; // ValueListenable
+class Mapa extends StatefulWidget {
+  final ValueNotifier<bool> isDarkMode;
   final VoidCallback toggleTheme;
 
   Mapa({super.key, required this.isDarkMode, required this.toggleTheme});
 
+  @override
+  _MapaState createState() => _MapaState();
+}
+
+class _MapaState extends State<Mapa> {
   final MapController _mapController = MapController();
   Map<String, dynamic>? _selectedLocation;
   double _rotation = 0.0;
@@ -75,8 +79,8 @@ class Mapa extends StatelessWidget {
         builder:
             (context) => MenuPage(
               locations: locations,
-              isDarkMode: isDarkMode,
-              toggleTheme: toggleTheme,
+              isDarkMode: widget.isDarkMode,
+              toggleTheme: widget.toggleTheme,
             ), // Pasa isDarkMode
       ),
     );
@@ -84,31 +88,50 @@ class Mapa extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-     return ValueListenableBuilder<bool>( // Escucha el ValueNotifier
-        valueListenable: isDarkMode,
-        builder: (context, darkModeValue, child){
-          return Scaffold(
-            appBar: AppBar(
-              leading: Container(), // IMPORTANTE: Container vacío
-              centerTitle: true,     // IMPORTANTE: Centrar el título.
-              title: Text(
-                      "UBICACIONES",
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        color: darkModeValue ? Colors.white : Colors.black, // Usa darkModeValue
-                      ),
+    return ValueListenableBuilder<bool>(
+      // Escucha el ValueNotifier
+      valueListenable: widget.isDarkMode,
+      builder: (context, darkModeValue, child) {
+        return Scaffold(
+          appBar: AppBar(
+            titleSpacing: 0.0,
+            title: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Expanded(
+                  child: Text(
+                    "UBICACIONES",
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      color:
+                          darkModeValue
+                              ? Colors.white
+                              : Colors.black, // Usa darkModeValue
                     ),
-              backgroundColor: darkModeValue ? Colors.black : Colors.white, // Usa darkModeValue
-              actions: [
-                IconButton(
-                  icon: Icon(
-                    darkModeValue ? Icons.light_mode : Icons.dark_mode, // Usa darkModeValue
-                    color: darkModeValue ? const Color(0xffd6a469) : Colors.black, // Usa darkModeValue
+                    textAlign: TextAlign.center,
                   ),
-                  onPressed: toggleTheme,
                 ),
               ],
             ),
+            backgroundColor:
+                darkModeValue
+                    ? Colors.black
+                    : Colors.white, // Usa darkModeValue
+            actions: [
+              IconButton(
+                icon: Icon(
+                  darkModeValue
+                      ? Icons.light_mode
+                      : Icons.dark_mode, // Usa darkModeValue
+                  color:
+                      darkModeValue
+                          ? const Color(0xffd6a469)
+                          : Colors.black, // Usa darkModeValue
+                ),
+                onPressed: widget.toggleTheme,
+              ),
+            ],
+          ),
           body: StatefulBuilder(
             builder: (BuildContext context, StateSetter setStateLocal) {
               return Stack(
@@ -122,9 +145,12 @@ class Mapa extends StatelessWidget {
                         _rotation = _mapController.camera.rotation;
                       },
                       onMapEvent: (MapEvent event) {
-                        setStateLocal(() {
-                          _rotation = event.camera.rotation;
-                        });
+                        // Usa MapEventMove
+                        if (event is MapEventMove) {
+                          setStateLocal(() {
+                            _rotation = event.camera.rotation;
+                          });
+                        }
                       },
                     ),
                     children: [
@@ -239,8 +265,8 @@ class Mapa extends StatelessWidget {
                     child: FloatingActionButton(
                       heroTag: "menu_button",
                       onPressed: () => _openMenu(context),
-                      backgroundColor:Color(0xffd6a469), // Usa darkModeValue
-                      child: Icon(Icons.menu, color: darkModeValue ? Colors.black : Colors.white),
+                      backgroundColor: Color(0xffd6a469), // Usa darkModeValue
+                      child: Icon(Icons.menu, color: Colors.black),
                     ),
                   ),
                 ],
@@ -276,7 +302,7 @@ class MenuPage extends StatelessWidget {
               darkModeValue ? const Color(0xff15181e) : Colors.white,
           appBar: AppBar(
             title: Text(
-              "UBICACIONES",
+              "Ubicaciones",
               style: TextStyle(
                 fontWeight: FontWeight.bold,
                 color: darkModeValue ? Colors.white : Colors.black,
@@ -335,8 +361,8 @@ class MenuPage extends StatelessWidget {
           ),
           floatingActionButton: FloatingActionButton(
             onPressed: () => Navigator.pop(context),
-            backgroundColor:Color(0xffd6a469), // Usa darkModeValue
-            child: Icon(Icons.menu, color: darkModeValue ? Colors.black : Colors.white)
+            backgroundColor: Color(0xffd6a469), // Apply dark mode
+            child: const Icon(Icons.map_outlined, color: Colors.black),
           ),
         );
       },

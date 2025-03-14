@@ -3,10 +3,14 @@ import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter_map/flutter_map.dart';
 import 'package:latlong2/latlong.dart';
 
+/// Widget para la sección de Colecciones.
 class Colecciones extends StatefulWidget {
-  final ValueNotifier<bool> isDarkMode; // Recibe ValueListenable
+  /// `true` si el modo oscuro está activado, `false` si no.
+  final ValueNotifier<bool> isDarkMode;
+  /// Función llamada al presionar el botón de cambio de tema.
   final VoidCallback toggleTheme;
 
+  /// Constructor.
   const Colecciones({
     super.key,
     required this.isDarkMode,
@@ -18,7 +22,9 @@ class Colecciones extends StatefulWidget {
 }
 
 class _ColeccionesState extends State<Colecciones> {
+  /// Controlador para el campo de búsqueda.
   final TextEditingController _searchController = TextEditingController();
+  /// Lista de audioguías con su información (título, imagen, audio, descripción).
   final List<Map<String, String>> colecc = [
     {
       "title": "Introducción",
@@ -134,35 +140,37 @@ class _ColeccionesState extends State<Colecciones> {
           "Exposición permanente de cerca de un centenar de fotografías históricas de nuestra localidad: calles y edificios antiguos, elementos costumbristas (trabajos en el campo, la arcilla…) fiestas y tradiciones locales, así como monumentos históricos como es el Castillo del Trovador Macías o la misma Iglesia de Ntra. Señora de la Encarnación, Banda Municipal Santa Cecilia o eventos procesionales, colegios y alumnos entre otras fotografías.",
     },
   ];
+  /// Lista filtrada de audioguías, usada para mostrar resultados de búsqueda.
   List<Map<String, String>> filtrColecc = [];
 
   @override
   void initState() {
     super.initState();
-    filtrColecc = colecc;
-    _searchController.addListener(_filterList);
+    filtrColecc = colecc; // Inicialmente, muestra todas las audioguías.
+    _searchController.addListener(_filterList); // Escucha cambios en el campo de búsqueda.
   }
 
+  /// Filtra la lista de audioguías basándose en el texto del campo de búsqueda.
   void _filterList() {
-    final query = _searchController.text.toLowerCase();
+    final query = _searchController.text.toLowerCase(); // Obtiene la consulta de búsqueda en minúsculas.
     if (query.isEmpty) {
       setState(() {
-        filtrColecc = List.from(colecc);
+        filtrColecc = List.from(colecc); // Si la consulta está vacía, muestra todas las audioguías.
       });
     } else {
       setState(() {
         filtrColecc =
-            colecc.where((item) {
-              final title = item["title"]?.toLowerCase() ?? "";
-              return title.contains(query);
-            }).toList();
+            colecc.where((item) { // Filtra la lista original.
+          final title = item["title"]?.toLowerCase() ?? ""; // Obtiene el título en minúsculas o una cadena vacía.
+          return title.contains(query); // Comprueba si el título contiene la consulta.
+        }).toList();
       });
     }
   }
 
   @override
   void dispose() {
-    _searchController.dispose();
+    _searchController.dispose(); // Libera el controlador del campo de búsqueda.
     super.dispose();
   }
 
@@ -174,23 +182,23 @@ class _ColeccionesState extends State<Colecciones> {
       builder: (context, darkModeValue, child) {
         return Scaffold(
           appBar: AppBar(
-            leading: Container(), // IMPORTANTE: Container vacío
+            leading: Container(), // IMPORTANTE: Container vacío para quitar el icono de la flecha.
             centerTitle: true, // IMPORTANTE: Centrar el título
             title: Text(
               'AUDIOGUÍAS COLECCIONES',
               style: TextStyle(
                 fontWeight: FontWeight.bold,
-                color: darkModeValue ? Colors.white : Colors.black,
+                color: darkModeValue ? Colors.white : Colors.black, // Color del texto según el tema.
               ),
             ),
-            backgroundColor: darkModeValue ? Colors.black : Colors.white,
+            backgroundColor: darkModeValue ? Colors.black : Colors.white, // Color de fondo del AppBar según el tema.
             actions: [
               IconButton(
                 icon: Icon(
-                  darkModeValue ? Icons.light_mode : Icons.dark_mode,
-                  color: darkModeValue ? const Color(0xffd6a469) : Colors.black,
+                  darkModeValue ? Icons.light_mode : Icons.dark_mode, // Icono según el tema.
+                  color: darkModeValue ? const Color(0xffd6a469) : Colors.black, // Color del icono según el tema.
                 ),
-                onPressed: widget.toggleTheme, // Usa widget.toggleTheme
+                onPressed: widget.toggleTheme, // Usa widget.toggleTheme para cambiar el tema.
               ),
             ],
           ),
@@ -199,7 +207,7 @@ class _ColeccionesState extends State<Colecciones> {
               Padding(
                 padding: const EdgeInsets.all(10),
                 child: TextField(
-                  controller: _searchController,
+                  controller: _searchController, // Controlador del campo de búsqueda.
                   decoration: InputDecoration(
                     hintText: "Buscar",
                     prefixIcon: Icon(Icons.search, color: Colors.grey),
@@ -207,40 +215,40 @@ class _ColeccionesState extends State<Colecciones> {
                     fillColor:
                         darkModeValue
                             ? Colors.grey[800]
-                            : Colors.grey[200], // Color del TextField
+                            : Colors.grey[200], // Color del TextField según el tema.
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(10),
-                      borderSide: BorderSide.none,
+                      borderSide: BorderSide.none, // Quita el borde.
                     ),
                   ),
                   style: TextStyle(
-                    color: darkModeValue ? Colors.white : Colors.black,
-                  ), // Color del texto del TextField
+                    color: darkModeValue ? Colors.white : Colors.black, // Color del texto del TextField según el tema
+                  ),
                 ),
               ),
               Expanded(
-                child: ListView.builder(
+                child: ListView.builder( // Muestra la lista de audioguías.
                   itemCount: filtrColecc.length,
                   itemBuilder: (context, index) {
-                    return GestureDetector(
-                      onTap: () {
-                        Navigator.push(
+                    return GestureDetector( // Widget para detectar el toque en cada elemento.
+                      onTap: () { // Al tocar un elemento...
+                        Navigator.push( // Navega a la página de detalles.
                           context,
                           MaterialPageRoute(
                             builder:
-                                (context) => DetailPage(
-                                  title: filtrColecc[index]["title"]!,
-                                  imagePath: filtrColecc[index]["image"]!,
-                                  audioPath: filtrColecc[index]["audio"]!,
-                                  descripcion:
-                                      filtrColecc[index]["descripcion"]!,
-                                      isDarkMode: widget.isDarkMode, // Pasa isDarkMode
-                                      toggleTheme: widget.toggleTheme, // Pasa toggleTheme
-                                ),
+                                (context) => DetailPage( // Crea la página de detalles.
+                              title: filtrColecc[index]["title"]!,
+                              imagePath: filtrColecc[index]["image"]!,
+                              audioPath: filtrColecc[index]["audio"]!,
+                              descripcion:
+                                  filtrColecc[index]["descripcion"]!,
+                              isDarkMode: widget.isDarkMode, // Pasa isDarkMode
+                              toggleTheme: widget.toggleTheme, // Pasa toggleTheme
+                            ),
                           ),
                         );
                       },
-                      child: GuideCard(
+                      child: GuideCard( // Muestra la tarjeta de la audioguía.
                         title: filtrColecc[index]["title"]!,
                         imagePath: filtrColecc[index]["image"]!,
                       ),
@@ -253,40 +261,44 @@ class _ColeccionesState extends State<Colecciones> {
           backgroundColor:
               darkModeValue
                   ? const Color(0xff15181e)
-                  : Colors.white, // Color de fondo del Scaffold
+                  : Colors.white, // Color de fondo del Scaffold según el tema.
         );
       },
     );
   }
 }
 
+/// Widget para mostrar una tarjeta de audioguía.
 class GuideCard extends StatelessWidget {
+  /// Título de la audioguía.
   final String title;
+  /// Ruta de la imagen de la audioguía.
   final String imagePath;
 
+  /// Constructor.
   const GuideCard({super.key, required this.title, required this.imagePath});
 
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
-      child: ClipRRect(
+      child: ClipRRect( // Widget para bordes redondeados.
         borderRadius: BorderRadius.circular(10),
-        child: Stack(
+        child: Stack( // Apila widgets uno encima del otro.
           alignment: Alignment.center,
           children: [
-            Image.asset(
+            Image.asset( // Muestra la imagen de fondo.
               imagePath,
               width: double.infinity,
               height: 300,
               fit: BoxFit.cover,
             ),
-            Container(
+            Container( // Contenedor para el efecto de superposición oscura.
               width: double.infinity,
               height: 300,
-              color: const Color.fromRGBO(0, 0, 0, 0.5),
+              color: const Color.fromRGBO(0, 0, 0, 0.5), // Color oscuro semitransparente.
               alignment: Alignment.center,
-              child: Text(
+              child: Text( // Muestra el título.
                 title,
                 style: const TextStyle(
                   color: Colors.white,
@@ -303,14 +315,29 @@ class GuideCard extends StatelessWidget {
   }
 }
 
+/// Widget para la página de detalles de una audioguía.  Muestra información
+/// como el título, imagen, un reproductor de audio, una descripción y,
+/// condicionalmente, un mapa.
 class DetailPage extends StatefulWidget {
+  /// `ValueNotifier<bool>` que indica si el modo oscuro está activado (`true`) o no (`false`).
   final ValueNotifier<bool> isDarkMode;
+
+  /// Función callback que se ejecuta cuando el usuario quiere cambiar el tema (claro/oscuro).
   final VoidCallback toggleTheme;
+
+  /// El título de la audioguía.
   final String title;
+
+  /// La ruta de la imagen asociada a la audioguía.
   final String imagePath;
+
+  /// La ruta del archivo de audio de la audioguía.
   final String audioPath;
+
+  /// La descripción textual de la audioguía.
   final String descripcion;
 
+  /// Constructor de la clase `DetailPage`.
   const DetailPage({
     super.key,
     required this.isDarkMode,
@@ -326,201 +353,235 @@ class DetailPage extends StatefulWidget {
 }
 
 class _DetailPageState extends State<DetailPage> {
+  /// Instancia del reproductor de audio. `late` indica que se inicializará más tarde.
   late AudioPlayer _audioPlayer;
+
+  /// Duración total del audio. Inicializado en cero.
   Duration _duration = Duration.zero;
+
+  /// Posición actual de reproducción dentro del audio. Inicializado en cero.
   Duration _position = Duration.zero;
+
+  /// Indica si el audio está actualmente reproduciéndose (`true`) o no (`false`).
   bool isPlaying = false;
 
   @override
   void initState() {
     super.initState();
     _audioPlayer = AudioPlayer();
+
+    // Listener para la duración del audio. Se actualiza cuando la duración cambia (p. ej., al cargar el audio).
     _audioPlayer.onDurationChanged.listen((d) {
       setState(() {
         _duration = d;
       });
     });
+
+    // Listener para la posición actual del audio. Se actualiza frecuentemente mientras el audio se reproduce.
     _audioPlayer.onPositionChanged.listen((p) {
       setState(() {
         _position = p;
       });
     });
+
+    // Listener para el evento de finalización de la reproducción.
     _audioPlayer.onPlayerComplete.listen((event) {
       setState(() {
-        isPlaying = false;
-        _position = Duration.zero;
+        isPlaying = false; // Pausa la reproducción.
+        _position = Duration.zero; // Reinicia la posición.
       });
     });
   }
 
+  /// Método para controlar la reproducción del audio (play/pausa).
   void _playPause() async {
     if (isPlaying) {
-      await _audioPlayer.pause();
+      await _audioPlayer.pause(); // Pausa si está reproduciendo.
     } else {
-      await _audioPlayer.play(AssetSource(widget.audioPath));
+      await _audioPlayer.play(AssetSource(widget.audioPath)); // Reproduce si está pausado. Usa `AssetSource` para archivos locales.
     }
     setState(() {
-      isPlaying = !isPlaying;
+      isPlaying = !isPlaying; // Invierte el estado de reproducción.
     });
   }
 
-  @override
-  void dispose() {
-    _audioPlayer.dispose();
-    super.dispose();
+  /// Método para cambiar la posición del audio cuando el usuario interactúa con el `Slider`.
+  void _seekAudio(double value) async {
+    await _audioPlayer.seek(Duration(seconds: value.toInt())); // Cambia la posición del audio.
   }
 
+@override
+void dispose() async {
+  try {
+    // Verifica si el reproductor sigue en uso antes de pararlo.
+    if (isPlaying) {
+      await _audioPlayer.stop(); // Detiene el audio.
+    }
+
+    // Cancela todos los listeners antes de liberar el reproductor.
+    await _audioPlayer.dispose(); // Libera los recursos de audio.
+
+  } catch (e) {
+    print("Error en dispose: $e"); // Muestra cualquier error en la consola.
+  }
+
+  super.dispose(); // Llama al método base.
+}
   @override
   Widget build(BuildContext context) {
+    // ValueListenableBuilder reacciona a cambios en `widget.isDarkMode`.
     return ValueListenableBuilder<bool>(
       valueListenable: widget.isDarkMode,
       builder: (context, darkModeValue, child) {
         return Scaffold(
-          backgroundColor: darkModeValue ? Colors.black : Colors.white,
+          backgroundColor: darkModeValue ? Colors.black : Colors.white, // Fondo del Scaffold según el tema.
           body: SafeArea(
+            // SafeArea evita que el contenido se solape con la barra de estado, etc.
             child: SingleChildScrollView(
+              // SingleChildScrollView permite scroll si el contenido es mayor que la pantalla.
               child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start, // Alinea los hijos a la izquierda.
                 children: [
-                  // Contenedor para el título y los botones
+                  // Contenedor superior para el título, botón de retroceso y botón de tema.
                   Container(
                     width: double.infinity,
                     padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 16),
-                    color: darkModeValue ? const Color(0xff15181e) : Colors.white,
+                    color: darkModeValue ? const Color(0xff15181e) : Colors.white, // Color del contenedor según el tema.
                     child: Row(
                       children: [
                         IconButton(
                           icon: Icon(Icons.arrow_back,
                               color: darkModeValue
                                   ? const Color(0xffd6a469)
-                                  : Colors.black),
+                                  : Colors.black), // Color del icono según tema.
                           onPressed: () {
-                            _audioPlayer.stop();
-                            Navigator.pop(context);
+                            _audioPlayer.stop(); // Detiene el audio al retroceder.
+                            _audioPlayer.dispose(); // Libera los recursos del reproductor.
+                            Navigator.pop(context); // Vuelve a la pantalla anterior.
                           },
                         ),
                         Expanded(
+                          // Expanded hace que el título ocupe el espacio restante.
                           child: Text(
                             widget.title,
                             style: TextStyle(
                               fontSize: 22,
                               fontWeight: FontWeight.bold,
-                              color: darkModeValue ? Colors.white : Colors.black,
+                              color: darkModeValue ? Colors.white : Colors.black, // Color del texto según el tema.
                             ),
-                            textAlign: TextAlign.center,
+                            textAlign: TextAlign.center, // Centra el título.
                           ),
                         ),
                         IconButton(
                           icon: Icon(
-                            darkModeValue ? Icons.light_mode : Icons.dark_mode,
-                            color: darkModeValue ? const Color(0xffd6a469) : Colors.black,
+                            darkModeValue ? Icons.light_mode : Icons.dark_mode, // Icono de sol/luna.
+                            color: darkModeValue ? const Color(0xffd6a469) : Colors.black, // Color del icono.
                           ),
-                          onPressed: widget.toggleTheme,
+                          onPressed: widget.toggleTheme, // Llama a la función para cambiar el tema.
                         ),
                       ],
                     ),
                   ),
+                  // Imagen principal de la audioguía.
                   Image.asset(
                     widget.imagePath,
                     width: double.infinity,
                     height: 300,
-                    fit: BoxFit.cover,
+                    fit: BoxFit.cover, // Ajusta la imagen para cubrir el espacio.
                   ),
+                  // Contenedor para el reproductor de audio y la descripción.
                   Container(
-                    color:
-                        darkModeValue ? const Color(0xff15181e) : Colors.white,
-                    padding:
-                        const EdgeInsets.symmetric(horizontal: 8.0, vertical: 10),
+                    color: darkModeValue ? const Color(0xff15181e) : Colors.white, // Color del contenedor según el tema.
+                    padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 10),
                     child: Column(
                       children: [
+                        // Personalización del Slider para el control de reproducción.
                         SliderTheme(
                           data: SliderThemeData(
-                            trackHeight: 3,
-                            thumbShape:
-                                RoundSliderThumbShape(enabledThumbRadius: 6),
-                            overlayShape:
-                                RoundSliderOverlayShape(overlayRadius: 10),
+                            trackHeight: 3, // Altura de la barra de progreso.
+                            thumbShape: RoundSliderThumbShape(enabledThumbRadius: 6), // Forma circular del control.
+                            overlayShape: RoundSliderOverlayShape(overlayRadius: 10), // Forma del efecto al presionar.
                           ),
                           child: Slider(
-                            activeColor:
-                                darkModeValue ? Color(0xffd6a469) : Colors.black,
-                            inactiveColor: Colors.grey,
-                            min: 0,
-                            max: _duration.inSeconds.toDouble(),
-                            value: _position.inSeconds.toDouble(),
-                            onChanged: (value) async {
-                              await _audioPlayer
-                                  .seek(Duration(seconds: value.toInt()));
-                            },
+                            activeColor: darkModeValue ? Color(0xffd6a469) : Colors.black, // Color de la parte activa.
+                            inactiveColor: Colors.grey, // Color de la parte inactiva.
+                            min: 0, // Valor mínimo (inicio del audio).
+                            max: _duration.inSeconds.toDouble(), // Valor máximo (duración del audio).
+                            value: _position.inSeconds.toDouble(), // Valor actual (posición de reproducción).
+                            onChanged: _seekAudio, // Llama a la función `_seekAudio` cuando el usuario mueve el slider.
                           ),
                         ),
+                        // Fila para mostrar el tiempo transcurrido y la duración total.
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Text(
                               "${_position.inMinutes.toString().padLeft(2, '0')}:${(_position.inSeconds % 60).toString().padLeft(2, '0')}",
-                              style: TextStyle(
-                                  color: darkModeValue ? Colors.white : Colors.black),
+                              style: TextStyle(color: darkModeValue ? Colors.white : Colors.black),
                             ),
                             Text(
                               "${_duration.inMinutes.toString().padLeft(2, '0')}:${(_duration.inSeconds % 60).toString().padLeft(2, '0')}",
-                              style: TextStyle(
-                                  color: darkModeValue ? Colors.white: Colors.black),
+                              style: TextStyle(color: darkModeValue ? Colors.white : Colors.black),
                             ),
                           ],
                         ),
+                        // Botón de reproducción/pausa.
                         IconButton(
                           icon: Icon(isPlaying ? Icons.pause_circle_filled : Icons.play_circle_fill,
-                              color: darkModeValue? Colors.white: Colors.black, size: 50),
-                          onPressed: _playPause,
+                              color: darkModeValue ? Colors.white : Colors.black, size: 50),
+                          onPressed: _playPause, // Llama a la función `_playPause`.
                         ),
                       ],
                     ),
                   ),
+                  // Contenedor para la descripción de la audioguía.
                   Container(
-                    color: darkModeValue ? const Color(0xff15181e) : Colors.white,
+                    color: darkModeValue ? const Color(0xff15181e) : Colors.white, // Color del contenedor según el tema.
                     padding: const EdgeInsets.all(8.0),
                     child: Text(
                       widget.descripcion,
                       style: TextStyle(
                           fontSize: 16,
-                          color: darkModeValue ? Colors.white : Colors.black),
+                          color: darkModeValue ? Colors.white : Colors.black), // Color del texto según tema.
                     ),
                   ),
-                  // Mapa (condicional)
+                  // Sección del mapa (se muestra solo si el título es "Introducción").
                   if (widget.title == "Introducción")
                     Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: ClipRRect(
+                        // Bordes redondeados para el mapa.
                         borderRadius: BorderRadius.circular(10),
                         child: Container(
                           height: 300,
                           decoration: BoxDecoration(
                             border: Border.all(
                                 color:
-                                    darkModeValue ? Colors.white30 : Colors.black),
+                                    darkModeValue ? Colors.white30 : Colors.black), // Borde del mapa.
                           ),
                           child: FlutterMap(
+                            // Widget FlutterMap para mostrar el mapa.
                             options: MapOptions(
+                              // Opciones del mapa.
                               initialCenter: const LatLng(
-                                  37.973682426664574, -4.104577225813943),
-                              initialZoom: 17.0,
+                                  37.973682426664574, -4.104577225813943), // Coordenadas iniciales.
+                              initialZoom: 17.0, // Nivel de zoom inicial.
                             ),
                             children: [
-                              TileLayer(
+                              TileLayer( // Capa de teselas (el mapa base).
                                 urlTemplate:
-                                    "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
+                                    "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png", // URL de las teselas.
                               ),
-                              MarkerLayer(
+                              MarkerLayer( // Capa de marcadores.
                                 markers: [
-                                  Marker(
+                                  Marker( // Marcador único.
                                     point: const LatLng(37.973682426664574,
-                                        -4.104577225813943),
+                                        -4.104577225813943), // Coordenadas del marcador.
                                     width: 30,
                                     height: 30,
                                     child: const Icon(
-                                      Icons.location_on,
-                                      color: Colors.red,
+                                      Icons.location_on, // Icono de ubicación.
+                                      color: Colors.red, // Color del icono.
                                     ),
                                   ),
                                 ],

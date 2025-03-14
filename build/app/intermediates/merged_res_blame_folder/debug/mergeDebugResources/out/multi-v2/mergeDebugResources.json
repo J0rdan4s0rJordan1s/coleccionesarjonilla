@@ -440,24 +440,7 @@
                     }
                 },
                 {
-                    "source": "/Users/aaronquevedo/.gradle/caches/8.10.2/transforms/abeed4f47a72eff8f5b4e9bf7f2f3c91/transformed/jetified-play-services-basement-18.3.0/res/values/values.xml",
-                    "from": {
-                        "startLines": "4,7",
-                        "startColumns": "0,0",
-                        "startOffsets": "243,406",
-                        "endColumns": "63,166",
-                        "endOffsets": "306,572"
-                    },
-                    "to": {
-                        "startLines": "159,177",
-                        "startColumns": "4,4",
-                        "startOffsets": "8272,10044",
-                        "endColumns": "67,166",
-                        "endOffsets": "8335,10206"
-                    }
-                },
-                {
-                    "source": "/Users/aaronquevedo/ColeccionesArjonilla/coleccionesarjonilla/android/app/src/main/res/values/styles.xml",
+                    "source": "/Users/aaronquevedo/ColeccionesArjonilla/MigracionApp/coleccionesarjonilla/android/app/src/main/res/values/styles.xml",
                     "from": {
                         "startLines": "3,14",
                         "startColumns": "4,4",
@@ -473,6 +456,23 @@
                         "endLines": "195,198",
                         "endColumns": "12,12",
                         "endOffsets": "11867,12036"
+                    }
+                },
+                {
+                    "source": "/Users/aaronquevedo/.gradle/caches/8.10.2/transforms/abeed4f47a72eff8f5b4e9bf7f2f3c91/transformed/jetified-play-services-basement-18.3.0/res/values/values.xml",
+                    "from": {
+                        "startLines": "4,7",
+                        "startColumns": "0,0",
+                        "startOffsets": "243,406",
+                        "endColumns": "63,166",
+                        "endOffsets": "306,572"
+                    },
+                    "to": {
+                        "startLines": "159,177",
+                        "startColumns": "4,4",
+                        "startOffsets": "8272,10044",
+                        "endColumns": "67,166",
+                        "endOffsets": "8335,10206"
                     }
                 }
             ]
@@ -1357,7 +1357,7 @@
             "outputFile": "com.example.flutter_application_2.app-debug-30:/values-night-v8_values-night-v8.arsc.flat",
             "map": [
                 {
-                    "source": "/Users/aaronquevedo/ColeccionesArjonilla/coleccionesarjonilla/android/app/src/main/res/values-night/styles.xml",
+                    "source": "/Users/aaronquevedo/ColeccionesArjonilla/MigracionApp/coleccionesarjonilla/android/app/src/main/res/values-night/styles.xml",
                     "from": {
                         "startLines": "3,14",
                         "startColumns": "4,4",

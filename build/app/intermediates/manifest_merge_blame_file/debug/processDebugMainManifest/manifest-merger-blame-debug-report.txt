@@ -13,20 +13,20 @@
 13         to allow setting breakpoints, to provide hot reload, etc.
 14    -->
 15    <uses-permission android:name="android.permission.INTERNET" />
-15-->/Users/aaronquevedo/ColeccionesArjonilla/coleccionesarjonilla/android/app/src/main/AndroidManifest.xml:6:5-66
-15-->/Users/aaronquevedo/ColeccionesArjonilla/coleccionesarjonilla/android/app/src/main/AndroidManifest.xml:6:22-64
+15-->/Users/aaronquevedo/ColeccionesArjonilla/MigracionApp/coleccionesarjonilla/android/app/src/main/AndroidManifest.xml:6:5-66
+15-->/Users/aaronquevedo/ColeccionesArjonilla/MigracionApp/coleccionesarjonilla/android/app/src/main/AndroidManifest.xml:6:22-64
 16    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-16-->/Users/aaronquevedo/ColeccionesArjonilla/coleccionesarjonilla/android/app/src/main/AndroidManifest.xml:2:5-78
-16-->/Users/aaronquevedo/ColeccionesArjonilla/coleccionesarjonilla/android/app/src/main/AndroidManifest.xml:2:22-76
+16-->/Users/aaronquevedo/ColeccionesArjonilla/MigracionApp/coleccionesarjonilla/android/app/src/main/AndroidManifest.xml:2:5-78
+16-->/Users/aaronquevedo/ColeccionesArjonilla/MigracionApp/coleccionesarjonilla/android/app/src/main/AndroidManifest.xml:2:22-76
 17    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-17-->/Users/aaronquevedo/ColeccionesArjonilla/coleccionesarjonilla/android/app/src/main/AndroidManifest.xml:3:5-80
-17-->/Users/aaronquevedo/ColeccionesArjonilla/coleccionesarjonilla/android/app/src/main/AndroidManifest.xml:3:22-78
+17-->/Users/aaronquevedo/ColeccionesArjonilla/MigracionApp/coleccionesarjonilla/android/app/src/main/AndroidManifest.xml:3:5-80
+17-->/Users/aaronquevedo/ColeccionesArjonilla/MigracionApp/coleccionesarjonilla/android/app/src/main/AndroidManifest.xml:3:22-78
 18    <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
-18-->/Users/aaronquevedo/ColeccionesArjonilla/coleccionesarjonilla/android/app/src/main/AndroidManifest.xml:4:5-84
-18-->/Users/aaronquevedo/ColeccionesArjonilla/coleccionesarjonilla/android/app/src/main/AndroidManifest.xml:4:22-82
+18-->/Users/aaronquevedo/ColeccionesArjonilla/MigracionApp/coleccionesarjonilla/android/app/src/main/AndroidManifest.xml:4:5-84
+18-->/Users/aaronquevedo/ColeccionesArjonilla/MigracionApp/coleccionesarjonilla/android/app/src/main/AndroidManifest.xml:4:22-82
 19    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
-19-->/Users/aaronquevedo/ColeccionesArjonilla/coleccionesarjonilla/android/app/src/main/AndroidManifest.xml:5:5-76
-19-->/Users/aaronquevedo/ColeccionesArjonilla/coleccionesarjonilla/android/app/src/main/AndroidManifest.xml:5:22-74
+19-->/Users/aaronquevedo/ColeccionesArjonilla/MigracionApp/coleccionesarjonilla/android/app/src/main/AndroidManifest.xml:5:5-76
+19-->/Users/aaronquevedo/ColeccionesArjonilla/MigracionApp/coleccionesarjonilla/android/app/src/main/AndroidManifest.xml:5:22-74
 20    <!--
 21 Required to query activities that can process text, see:
 22         https://developer.android.com/training/package-visibility and
@@ -35,29 +35,29 @@
 25         In particular, this is used by the Flutter engine in io.flutter.plugin.text.ProcessTextPlugin.
 26    -->
 27    <queries>
-27-->/Users/aaronquevedo/ColeccionesArjonilla/coleccionesarjonilla/android/app/src/main/AndroidManifest.xml:45:5-55:15
+27-->/Users/aaronquevedo/ColeccionesArjonilla/MigracionApp/coleccionesarjonilla/android/app/src/main/AndroidManifest.xml:45:5-55:15
 28        <intent>
-28-->/Users/aaronquevedo/ColeccionesArjonilla/coleccionesarjonilla/android/app/src/main/AndroidManifest.xml:46:9-49:18
+28-->/Users/aaronquevedo/ColeccionesArjonilla/MigracionApp/coleccionesarjonilla/android/app/src/main/AndroidManifest.xml:46:9-49:18
 29            <action android:name="android.intent.action.PROCESS_TEXT" />
-29-->/Users/aaronquevedo/ColeccionesArjonilla/coleccionesarjonilla/android/app/src/main/AndroidManifest.xml:47:13-72
-29-->/Users/aaronquevedo/ColeccionesArjonilla/coleccionesarjonilla/android/app/src/main/AndroidManifest.xml:47:21-70
+29-->/Users/aaronquevedo/ColeccionesArjonilla/MigracionApp/coleccionesarjonilla/android/app/src/main/AndroidManifest.xml:47:13-72
+29-->/Users/aaronquevedo/ColeccionesArjonilla/MigracionApp/coleccionesarjonilla/android/app/src/main/AndroidManifest.xml:47:21-70
 30
 31            <data android:mimeType="text/plain" />
-31-->/Users/aaronquevedo/ColeccionesArjonilla/coleccionesarjonilla/android/app/src/main/AndroidManifest.xml:48:13-50
-31-->/Users/aaronquevedo/ColeccionesArjonilla/coleccionesarjonilla/android/app/src/main/AndroidManifest.xml:48:19-48
+31-->/Users/aaronquevedo/ColeccionesArjonilla/MigracionApp/coleccionesarjonilla/android/app/src/main/AndroidManifest.xml:48:13-50
+31-->/Users/aaronquevedo/ColeccionesArjonilla/MigracionApp/coleccionesarjonilla/android/app/src/main/AndroidManifest.xml:48:19-48
 32        </intent>
 33        <intent>
-33-->/Users/aaronquevedo/ColeccionesArjonilla/coleccionesarjonilla/android/app/src/main/AndroidManifest.xml:50:9-54:18
+33-->/Users/aaronquevedo/ColeccionesArjonilla/MigracionApp/coleccionesarjonilla/android/app/src/main/AndroidManifest.xml:50:9-54:18
 34            <action android:name="android.intent.action.VIEW" />
-34-->/Users/aaronquevedo/ColeccionesArjonilla/coleccionesarjonilla/android/app/src/main/AndroidManifest.xml:51:13-65
-34-->/Users/aaronquevedo/ColeccionesArjonilla/coleccionesarjonilla/android/app/src/main/AndroidManifest.xml:51:21-62
+34-->/Users/aaronquevedo/ColeccionesArjonilla/MigracionApp/coleccionesarjonilla/android/app/src/main/AndroidManifest.xml:51:13-65
+34-->/Users/aaronquevedo/ColeccionesArjonilla/MigracionApp/coleccionesarjonilla/android/app/src/main/AndroidManifest.xml:51:21-62
 35
 36            <category android:name="android.intent.category.BROWSABLE" />
-36-->/Users/aaronquevedo/ColeccionesArjonilla/coleccionesarjonilla/android/app/src/main/AndroidManifest.xml:52:13-74
-36-->/Users/aaronquevedo/ColeccionesArjonilla/coleccionesarjonilla/android/app/src/main/AndroidManifest.xml:52:23-71
+36-->/Users/aaronquevedo/ColeccionesArjonilla/MigracionApp/coleccionesarjonilla/android/app/src/main/AndroidManifest.xml:52:13-74
+36-->/Users/aaronquevedo/ColeccionesArjonilla/MigracionApp/coleccionesarjonilla/android/app/src/main/AndroidManifest.xml:52:23-71
 37
 38            <data android:scheme="https" />
-38-->/Users/aaronquevedo/ColeccionesArjonilla/coleccionesarjonilla/android/app/src/main/AndroidManifest.xml:48:13-50
+38-->/Users/aaronquevedo/ColeccionesArjonilla/MigracionApp/coleccionesarjonilla/android/app/src/main/AndroidManifest.xml:48:13-50
 39        </intent>
 40    </queries>
 41
@@ -118,24 +118,24 @@
 90            android:value="2" />
 91
 92        <service
-92-->[:geolocator_android] /Users/aaronquevedo/ColeccionesArjonilla/coleccionesarjonilla/build/geolocator_android/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:8:9-12:56
+92-->[:geolocator_android] /Users/aaronquevedo/ColeccionesArjonilla/MigracionApp/coleccionesarjonilla/build/geolocator_android/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:8:9-12:56
 93            android:name="com.baseflow.geolocator.GeolocatorLocationService"
-93-->[:geolocator_android] /Users/aaronquevedo/ColeccionesArjonilla/coleccionesarjonilla/build/geolocator_android/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:9:13-77
+93-->[:geolocator_android] /Users/aaronquevedo/ColeccionesArjonilla/MigracionApp/coleccionesarjonilla/build/geolocator_android/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:9:13-77
 94            android:enabled="true"
-94-->[:geolocator_android] /Users/aaronquevedo/ColeccionesArjonilla/coleccionesarjonilla/build/geolocator_android/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:10:13-35
+94-->[:geolocator_android] /Users/aaronquevedo/ColeccionesArjonilla/MigracionApp/coleccionesarjonilla/build/geolocator_android/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:10:13-35
 95            android:exported="false"
-95-->[:geolocator_android] /Users/aaronquevedo/ColeccionesArjonilla/coleccionesarjonilla/build/geolocator_android/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:11:13-37
+95-->[:geolocator_android] /Users/aaronquevedo/ColeccionesArjonilla/MigracionApp/coleccionesarjonilla/build/geolocator_android/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:11:13-37
 96            android:foregroundServiceType="location" />
-96-->[:geolocator_android] /Users/aaronquevedo/ColeccionesArjonilla/coleccionesarjonilla/build/geolocator_android/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:12:13-53
+96-->[:geolocator_android] /Users/aaronquevedo/ColeccionesArjonilla/MigracionApp/coleccionesarjonilla/build/geolocator_android/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:12:13-53
 97
 98        <activity
-98-->[:url_launcher_android] /Users/aaronquevedo/ColeccionesArjonilla/coleccionesarjonilla/build/url_launcher_android/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:8:9-11:74
+98-->[:url_launcher_android] /Users/aaronquevedo/ColeccionesArjonilla/MigracionApp/coleccionesarjonilla/build/url_launcher_android/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:8:9-11:74
 99            android:name="io.flutter.plugins.urllauncher.WebViewActivity"
-99-->[:url_launcher_android] /Users/aaronquevedo/ColeccionesArjonilla/coleccionesarjonilla/build/url_launcher_android/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:9:13-74
+99-->[:url_launcher_android] /Users/aaronquevedo/ColeccionesArjonilla/MigracionApp/coleccionesarjonilla/build/url_launcher_android/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:9:13-74
 100            android:exported="false"
-100-->[:url_launcher_android] /Users/aaronquevedo/ColeccionesArjonilla/coleccionesarjonilla/build/url_launcher_android/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:10:13-37
+100-->[:url_launcher_android] /Users/aaronquevedo/ColeccionesArjonilla/MigracionApp/coleccionesarjonilla/build/url_launcher_android/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:10:13-37
 101            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
-101-->[:url_launcher_android] /Users/aaronquevedo/ColeccionesArjonilla/coleccionesarjonilla/build/url_launcher_android/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:11:13-71
+101-->[:url_launcher_android] /Users/aaronquevedo/ColeccionesArjonilla/MigracionApp/coleccionesarjonilla/build/url_launcher_android/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:11:13-71
 102
 103        <uses-library
 103-->[androidx.window:window:1.2.0] /Users/aaronquevedo/.gradle/caches/8.10.2/transforms/5093ab42d2307deb2d7ac0b7f5718c38/transformed/jetified-window-1.2.0/AndroidManifest.xml:23:9-25:40
